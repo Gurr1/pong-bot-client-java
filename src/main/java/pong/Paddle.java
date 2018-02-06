@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Paddle {
 	private final double angle;
 	private final State state;
-	private final String player;
+	private final int player;
 
-	public Paddle(double angle, State state, String player) {
+	public Paddle(double angle, State state, int player) {
 		this.angle = angle;
 		this.state = state;
 		this.player = player;
@@ -39,7 +39,7 @@ public class Paddle {
 		return state;
 	}
 
-	public String getPlayer() {
+	public int getPlayer() {
 		return player;
 	}
 
@@ -58,7 +58,7 @@ public class Paddle {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if(!(o instanceof Paddle)) return false;
-		return this.getPlayer().equals(((Paddle) o).getPlayer()) &&
+		return this.getPlayer() == ((Paddle) o).getPlayer() &&
 			this.getState() == ((Paddle) o).getState() &&
 			this.getAngle() == ((Paddle) o).getAngle();
 	}

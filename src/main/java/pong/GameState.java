@@ -6,17 +6,17 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class GameState {
-	private final Collection<Paddle> paddles;
+	private final Paddle[] paddles;
 	private final Ball ball;
 
 	public GameState(Ball ball, Collection<Paddle> paddles){
 		this.ball = ball;
-		this.paddles = new ArrayList<>(paddles);
+		this.paddles = paddles.toArray(new Paddle[paddles.size()]);
 	}
 
 	public GameState(Ball ball, Paddle... paddles){
 		this.ball = ball;
-		this.paddles = new ArrayList<>(Arrays.asList(paddles));
+		this.paddles = paddles;
 	}
 
 	public Ball getBall(){
@@ -24,7 +24,7 @@ public class GameState {
 	}
 
 	public Collection<Paddle> getPaddles(){
-		return new ArrayList<>(paddles);
+		return new ArrayList<>(Arrays.asList(paddles));
 	}
 
 	@Override
